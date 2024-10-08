@@ -1,10 +1,8 @@
 import gleam/dict
-import gleam/dynamic
 import gleam/int
 import gleam/io
 import gleam/list
 import gleam/option.{None, Some}
-import gleam/pair
 import gleam/result
 import gleam/string
 import simplifile

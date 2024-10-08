@@ -44,7 +44,7 @@ pub fn part_1(input: String) -> Int {
 }
 
 pub fn part_2(input: String) -> Int {
-  let traveled_tuple =
+  let #(pos, depth, _) =
     parse_commands(input)
     |> list.fold(#(0, 0, 0), fn(acc, cmd) {
       let #(pos, depth, aim) = acc
@@ -54,7 +54,7 @@ pub fn part_2(input: String) -> Int {
         Up(amt) -> #(pos, depth, aim - amt)
       }
     })
-  traveled_tuple.0 * traveled_tuple.1
+  pos * depth
 }
 
 pub fn main() {
