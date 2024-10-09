@@ -8,12 +8,12 @@ up 3
 down 8
 forward 2"
 
-pub fn part_1_test() {
-  let result = day2.part_1(input)
+pub fn part1_test() {
+  let result = day2.part1(input)
   result |> should.equal(150)
 }
 
-pub fn part_2_test() {
-  let result = day2.part_2(input)
+pub fn part2_test() {
+  let result = day2.part2(input)
   result |> should.equal(900)
 }

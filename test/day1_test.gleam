@@ -13,12 +13,12 @@ const input = "199
 263
 "
 
-pub fn part_1_test() {
-  let result = day1.part_1(input)
+pub fn part1_test() {
+  let result = day1.part1(input)
   result |> should.equal(7)
 }
 
-pub fn part_2_test() {
-  let result = day1.part_2(input)
+pub fn part2_test() {
+  let result = day1.part2(input)
   result |> should.equal(5)
 }

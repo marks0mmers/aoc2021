@@ -12,12 +12,12 @@ const input = "0,9 -> 5,9
 0,0 -> 8,8
 5,5 -> 8,2"
 
-pub fn part_1_test() {
-  let result = day5.part_1(input)
+pub fn part1_test() {
+  let result = day5.part1(input)
   result |> should.equal(5)
 }
 
-pub fn part_2_test() {
-  let result = day5.part_2(input)
+pub fn part2_test() {
+  let result = day5.part2(input)
   result |> should.equal(12)
 }

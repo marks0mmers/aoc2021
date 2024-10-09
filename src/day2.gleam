@@ -30,7 +30,7 @@ fn parse_commands(input: String) -> List(Command) {
   |> list.map(parse_command(_))
 }
 
-pub fn part_1(input: String) -> Int {
+pub fn part1(input: String) -> Int {
   let traveled_tuple =
     parse_commands(input)
     |> list.fold(#(0, 0), fn(acc, cmd) {
@@ -43,7 +43,7 @@ pub fn part_1(input: String) -> Int {
   traveled_tuple.0 * traveled_tuple.1
 }
 
-pub fn part_2(input: String) -> Int {
+pub fn part2(input: String) -> Int {
   let #(pos, depth, _) =
     parse_commands(input)
     |> list.fold(#(0, 0, 0), fn(acc, cmd) {
@@ -59,6 +59,6 @@ pub fn part_2(input: String) -> Int {
 
 pub fn main() {
   let assert Ok(input) = simplifile.read("data/day2.txt")
-  io.println("Part 1: " <> part_1(input) |> int.to_string())
-  io.println("Part 2: " <> part_2(input) |> int.to_string())
+  io.println("Part 1: " <> part1(input) |> int.to_string())
+  io.println("Part 2: " <> part2(input) |> int.to_string())
 }

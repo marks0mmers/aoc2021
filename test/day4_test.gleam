@@ -21,12 +21,12 @@ const input = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3
 22 11 13  6  5
  2  0 12  3  7"
 
-pub fn part_1_test() {
-  let result = day4.part_1(input)
+pub fn part1_test() {
+  let result = day4.part1(input)
   result |> should.equal(4512)
 }
 
-pub fn part_2_test() {
-  let result = day4.part_2(input)
+pub fn part2_test() {
+  let result = day4.part2(input)
   result |> should.equal(1924)
 }

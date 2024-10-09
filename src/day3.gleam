@@ -8,7 +8,7 @@ import gleam/string
 import simplifile
 import utils
 
-pub fn part_1(input: String) -> Int {
+pub fn part1(input: String) -> Int {
   let lines =
     input
     |> string.split("\n")
@@ -74,7 +74,7 @@ fn gas_rating(lines: List(#(String, String)), inverse: Bool) -> Result(Int, Nil)
   }
 }
 
-pub fn part_2(input: String) -> Int {
+pub fn part2(input: String) -> Int {
   let lines =
     input
     |> string.split("\n")
@@ -93,6 +93,6 @@ pub fn part_2(input: String) -> Int {
 
 pub fn main() {
   let assert Ok(input) = simplifile.read("data/day3.txt")
-  io.println("Part 1: " <> part_1(input) |> int.to_string())
-  io.println("Part 2: " <> part_2(input) |> int.to_string())
+  io.println("Part 1: " <> part1(input) |> int.to_string())
+  io.println("Part 2: " <> part2(input) |> int.to_string())
 }

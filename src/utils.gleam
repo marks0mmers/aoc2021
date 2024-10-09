@@ -1,5 +1,6 @@
 import gleam/bool
 import gleam/list
+import gleam/option
 import gleam/string
 
 pub fn sum(list: List(Int)) -> Int {
@@ -16,5 +17,12 @@ pub fn ternary(cond: Bool, true: value, false: value) -> value {
   case cond {
     True -> true
     False -> false
+  }
+}
+
+pub fn dict_increment(opt: option.Option(Int)) {
+  case opt {
+    option.Some(val) -> val + 1
+    option.None -> 1
   }
 }

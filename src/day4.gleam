@@ -3,7 +3,6 @@ import gleam/dict.{type Dict}
 import gleam/int
 import gleam/io
 import gleam/list
-import gleam/option.{None, Some}
 import gleam/result
 import gleam/string
 import simplifile
@@ -40,13 +39,7 @@ fn winning(board: Board) -> Bool {
     |> dict.fold(dict.new(), fn(acc, _, value) {
       let #(x, _, has_been_called) = value
       use <- bool.guard(when: !has_been_called, return: acc)
-      acc
-      |> dict.upsert(x, fn(opt) {
-        case opt {
-          Some(val) -> val + 1
-          None -> 1
-        }
-      })
+      acc |> dict.upsert(x, utils.dict_increment)
     })
     |> dict.values()
     |> list.any(fn(count) { count == 5 })
@@ -57,12 +50,7 @@ fn winning(board: Board) -> Bool {
       let #(_, y, has_been_called) = value
       use <- bool.guard(when: !has_been_called, return: acc)
       acc
-      |> dict.upsert(y, fn(opt) {
-        case opt {
-          Some(val) -> val + 1
-          None -> 1
-        }
-      })
+      |> dict.upsert(y, utils.dict_increment)
     })
     |> dict.values()
     |> list.any(fn(count) { count == 5 })
@@ -150,13 +138,13 @@ fn calculate_score(board: Board, num_won: Int) {
   sum_of_remaining * num_won
 }
 
-pub fn part_1(input: String) -> Int {
+pub fn part1(input: String) -> Int {
   let assert Ok(game) = parse_game(input)
   let #(winning_board, number_won) = find_first_winner(game)
   calculate_score(winning_board, number_won)
 }
 
-pub fn part_2(input: String) -> Int {
+pub fn part2(input: String) -> Int {
   let assert Ok(game) = parse_game(input)
   let #(winning_board, number_won) = find_last_winner(game)
   calculate_score(winning_board, number_won)
@@ -164,6 +152,6 @@ pub fn part_2(input: String) -> Int {
 
 pub fn main() {
   let assert Ok(input) = simplifile.read("data/day4.txt")
-  io.println("Part 1: " <> part_1(input) |> int.to_string())
-  io.println("Part 2: " <> part_2(input) |> int.to_string())
+  io.println("Part 1: " <> part1(input) |> int.to_string())
+  io.println("Part 2: " <> part2(input) |> int.to_string())
 }

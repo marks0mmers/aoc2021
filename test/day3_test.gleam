@@ -14,12 +14,12 @@ const input = "00100
 00010
 01010"
 
-pub fn part_1_test() {
-  let result = day3.part_1(input)
+pub fn part1_test() {
+  let result = day3.part1(input)
   result |> should.equal(198)
 }
 
-pub fn part_2_test() {
-  let result = day3.part_2(input)
+pub fn part2_test() {
+  let result = day3.part2(input)
   result |> should.equal(230)
 }
